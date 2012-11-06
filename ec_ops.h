@@ -17,10 +17,10 @@ using namespace std;
 #define B_STR  "64210519 e59c80e7 0fa7e9ab 72243049 feb8deec c146b9b1"
 #define GX_STR "188da80e b03090f6 7cbf20eb 43a18800 f4ff0afd 82ff1012"
 #define GY_STR "07192b95 ffc8da78 631011ed 6b24cdd5 73f977a1 1e794811"
+#define MESSAGE_STR "13144236608967899886525283787315573770527831478534"
+#define XA_STR "865252837873155737705278314785349179279"  //private Key of receiver
+#define XB_STR "31442366089678998865252837873155737705278314785349" //private key of sender
 
-/*
-* This are small parameters
-*/
 /*
 #define PRIME_STR "11"
 #define ORDER_STR "13"
@@ -37,7 +37,9 @@ const mpz_class A(A_STR);
 const mpz_class B(B_STR, 16);
 const mpz_class GX(GX_STR, 16);
 const mpz_class GY(GY_STR, 16);
-
+const mpz_class MESSAGE(MESSAGE_STR);
+const mpz_class XA(XA_STR); //private key of receiver
+const mpz_class XB(XB_STR); //private key of sender
 
 /*
  * class Zp: An element in GF(p)
@@ -109,10 +111,14 @@ class ECsystem{
 		mpz_class pointCompress(ECpoint e);
 		ECpoint pointDecompress(mpz_class compressedPoint);
 	public:
+
 		ECsystem(){ G = ECpoint(GX, GY);}
 		ECpoint getPublicKey(){ return publicKey;}
+		
 		pair <ECpoint, mpz_class> generateKeys();		
-		pair<mpz_class, Zp> encrypt(ECpoint publicKey, Zp plaintext);
+
+		
+		pair<mpz_class, Zp> encrypt(ECpoint publicKey, mpz_class privateKey, Zp plaintext);
 		Zp decrypt(pair<mpz_class, Zp> cm);
 };
 

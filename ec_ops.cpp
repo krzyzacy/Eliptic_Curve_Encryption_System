@@ -66,11 +66,11 @@ ostream& operator << (ostream& output, const ECpoint& a){
 //================= Methods for ECsystem =================
 
 pair <ECpoint, mpz_class> ECsystem::generateKeys(){
-	//Generates the private key and public key for the user to whom the message is sent
-	//Returns only the "P" value of the public key and "a" value of the private key, 
+	//Generate the private key and public key for the user to whom message is sent
+	//Returns only the "P" value of public key and "a" value of private key, 
 	//as other parameters are globally defined
 	
-	privateKey = rand();
+	privateKey = XA;
 	publicKey = G*privateKey; 
 	return pair <ECpoint, mpz_class> (publicKey, privateKey);
 }
