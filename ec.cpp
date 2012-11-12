@@ -7,21 +7,38 @@
 using namespace std;
 
 Zp Zp::inverse() const{
+	cout << "inverse" << endl;
+
+	Zp tmp;
+	tmp.setValue(getValue());
+
+	
 	// Implement the Extended Euclidean Algorithm to return the inverse mod PRIME		
 }
 
 
 ECpoint ECpoint::operator + (const ECpoint &a) const {
+	cout << "op add" << endl;
 	// Implement  elliptic curve addition 		
 }
 
 
 ECpoint ECpoint::repeatSum(ECpoint p, mpz_class v) const {
+	cout << "repeat sum" << endl;
+	cout << "initial x = " << p.x << " and y = " << p.y << endl;
+
+	ECpoint ret;
+		
+	ret.x = p.x;
+	ret.y = p.y;
+
+	return ret;
 	//Implement repeated squaring (with + rather than *) to find the sum of p+p+...+p (vtimes)
 	//It is similar to the recursive exponential algorithm discussed for RSA		
 }
 
 Zp ECsystem::power(Zp val, mpz_class pow) {
+	cout << "power" << endl;
 	//Implement repeated squaring (*) to find the sum of val*val+...+val (pow times)
 	//It is similar to the repeat sum above or recursive exponential algorithm discussed for RSA
 	//It is the power function that is required to compute the square root in decryption algorithm
@@ -99,15 +116,19 @@ Correct!
 For grading I will set the incremental value to some other value.
 */
 int main(void){
+	cout << "start" << endl;
 	srand(time(0));
 	ECsystem ec;
 	mpz_class incrementVal;	
-	pair <ECpoint, mpz_class> keys = ec.generateKeys();
+	
+	Zp tmp(10);
+	cout << tmp << endl;
+	/*pair <ECpoint, mpz_class> keys = ec.generateKeys();
 	
 	
 	Zp plaintext = MESSAGE;
 	ECpoint publicKey = keys.first;
-	cout<<"Public key is: "<<publicKey<<"\n";
+	cout<<"Public key is: "<< publicKey <<"\n";
 	
 	cout<<"Enter offset value for sender's private key"<<endl;
 	cin>>incrementVal;
@@ -127,7 +148,7 @@ int main(void){
 		cout << "Plaintext different from original plaintext." << endl;	
 			
 	return 1;
-
+	*/
 }
 
 

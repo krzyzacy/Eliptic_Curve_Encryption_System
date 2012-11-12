@@ -10,25 +10,26 @@ using namespace std;
 /*
  * Parameters for EC and transform into constants
  */
-
+/*
 #define PRIME_STR "6277101735386680763835789423207666416083908700390324961279"
 #define ORDER_STR "6277101735386680763835789423176059013767194773182842284081"
 #define A_STR  "-3"
 #define B_STR  "64210519 e59c80e7 0fa7e9ab 72243049 feb8deec c146b9b1"
 #define GX_STR "188da80e b03090f6 7cbf20eb 43a18800 f4ff0afd 82ff1012"
 #define GY_STR "07192b95 ffc8da78 631011ed 6b24cdd5 73f977a1 1e794811"
+*/
 #define MESSAGE_STR "13144236608967899886525283787315573770527831478534"
 #define XA_STR "865252837873155737705278314785349179279"  //private Key of receiver
 #define XB_STR "31442366089678998865252837873155737705278314785349" //private key of sender
 
-/*
+
 #define PRIME_STR "11"
 #define ORDER_STR "13"
 #define A_STR  "1"
 #define B_STR  "6"
 #define GX_STR "2"
 #define GY_STR "7"
-*/
+
 
 
 const mpz_class PRIME(PRIME_STR);
